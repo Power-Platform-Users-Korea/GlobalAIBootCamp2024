@@ -15,7 +15,7 @@
   이번 핸즈온에서 사용할 'csv' 파일입니다.  
   데이터베이스의 구조와 설계에 해당할 스키마가 들어 있는데, SharePoint에서 가져와서 목록(List)를 만들고 난 후에 이 목록을 통해 손쉽게 앱을 만을 게 됩니다.  
   기본적으로 앱은 데이터를 만들고(Create), 읽어오고(Read), 고치고(Update), 지우는(Delete) 일을 하는데 -이런 일을 영어 앞머리를 따서 'CRUD'라고 하죠?-  자동으로 'CRUD'가 가능한 앱을 목록에서 곧바로 만들어 줍니다.  
-  실습에 사용할 파일: [WebinarBookingList.csv](/WebinarBookingList.csv) <- 내려받아 주세요.  
+  실습에 사용할 파일: [WebinarBookingList.csv]([/WebinarBookingList.csv](https://github.com/Power-Platform-Users-Korea/GlobalAIBootCamp2024/blob/main/WebinarBookingList.csv) <- 내려받아 주세요.  
 
 ### 2. QR코드 생성
   오픈소스로 QR코드를 생성하는 곳: [https://quickchart.io/](https://quickchart.io/)는 오픈소스로 차트 이미지를 만들어 주는 곳입니다.  
