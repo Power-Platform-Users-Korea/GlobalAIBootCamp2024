@@ -45,6 +45,8 @@ SharePoint에 접속하시면 왼편에 메뉴들이 나와 있습니다.
 내 목록(My lists)에 저장하면 SharePoint가 아닌 Microsoft Lists라는 곳에 저장이 되어 있는 걸 눈썰미 좋은 분들은 확인하실 수 있습니다.  
 ![image](https://github.com/Power-Platform-Users-Korea/GlobalAIBootCamp2024/assets/83335854/6a455bfc-df85-4e34-8fc6-014539d8551c)
 
+> 엄청중요: Attendance 라는 컬럼이 Choice 이기 때문에 나중에 출석체크를 확인할 때 Boolean으로 처리가 어렵습니다. 그래서 Attendance_Status라는 'Yes/No' 타입의 컬럼을 만듭니다.
+
 ## 3. SharePoint List에서 앱 만들기
 
 이제 앱을 만들어 봅시다.  
