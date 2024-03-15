@@ -272,3 +272,12 @@ Set(
 
 UpdateContext({vName: vNameValue})
 ```
+
+## 9. 마무리
+### 9-1. QR 코드 스캔한 값 확인하기
+Text Label을 4개 추가한 후 '이름'과 '소속'을 각각 키(key)와 값(value)으로 나타낼 수 있게 합니다.  
+Lookup 함수를 사용합니다.  
+### 9-2. QR 코드 스캔한 사람의 출석상태 체크
+Toggle 버튼으로 손쉽게 출석여부를 확인하고 상태값을 업데이트 합니다.  
+Toggle 버튼에는 "Yes/No" 타입의 "Attendance_Status"라는 컬럼을 활용합니다.  
+Toggle 버튼과 일반 버튼을 추가해서 Patch 함수를 이용해 상태를 변경하게 합니다. 
