@@ -46,6 +46,9 @@ SharePoint에 접속하시면 왼편에 메뉴들이 나와 있습니다.
 ![image](https://github.com/Power-Platform-Users-Korea/GlobalAIBootCamp2024/assets/83335854/6a455bfc-df85-4e34-8fc6-014539d8551c)
 
 > 엄청중요: Attendance 라는 컬럼이 Choice 이기 때문에 나중에 출석체크를 확인할 때 Boolean으로 처리가 어렵습니다. 그래서 Attendance_Status라는 'Yes/No' 타입의 컬럼을 만듭니다.
+나중에 출석체크할 때 토글로 사용할 계획입니다.
+![image](https://github.com/Power-Platform-Users-Korea/GlobalAIBootCamp2024/assets/83335854/3242e048-cdca-4b49-9873-3bf2d4eaa0e5)
+
 
 ## 3. SharePoint List에서 앱 만들기
 
