@@ -28,3 +28,7 @@
    ```  
 
    ![QR코드 예제: '홍길동|율도국'](https://quickchart.io/qr?text=%ED%99%8D%EA%B8%B8%EB%8F%99|%EC%9C%A8%EB%8F%84%EA%B5%AD)
+
+   ### 3. Power Apps 모바일 앱 내려받기
+   실습을 위해 모바일용 Power Apps를 내려받아야 합니다.  
+   [모바일용 Power Apps 설치페이지](https://learn.microsoft.com/en-us/power-apps/mobile/run-powerapps-on-mobile?WT.mc_id=DX-MVP-5005254)
