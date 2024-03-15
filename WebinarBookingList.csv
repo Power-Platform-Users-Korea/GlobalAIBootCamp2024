@@ -1,0 +1,8 @@
+﻿ListSchema={"schemaXmlList":["<Field ID=\"{fa564e0f-0c70-4ab9-b863-0177e6ddd247}\" Type=\"Text\" Name=\"Title\" DisplayName=\"Name\" Required=\"FALSE\" SourceID=\"http://schemas.microsoft.com/sharepoint/v3\" StaticName=\"Title\" FromBaseType=\"TRUE\" MaxLength=\"255\" />","<Field Type=\"Text\" DisplayName=\"email\" Name=\"field_2\" ID=\"{d2ef6dff-25ef-47a9-84eb-f98563ae32cc}\" StaticName=\"field_2\" />","<Field Type=\"Text\" DisplayName=\"address\" Name=\"field_3\" ID=\"{3073fb8e-8fb5-43f6-9768-b78314874fa7}\" StaticName=\"field_3\" />","<Field Type=\"Text\" DisplayName=\"orginazation\" Name=\"field_4\" ID=\"{a905871c-33c2-4037-8e0f-df570f63115e}\" StaticName=\"field_4\" />","<Field ClientSideComponentId=\"00000000-0000-0000-0000-000000000000\" DisplayName=\"QR\" Format=\"Dropdown\" MaxLength=\"255\" Name=\"field_5\" Title=\"QR\" Type=\"Text\" ID=\"{c3ccdbb0-4676-4311-abc7-65d91261d001}\" StaticName=\"field_5\" />","<Field ClientSideComponentId=\"00000000-0000-0000-0000-000000000000\" DisplayName=\"Attendance\" FillInChoice=\"FALSE\" Format=\"Dropdown\" Name=\"field_6\" Title=\"Attendance\" Type=\"Choice\" ID=\"{7fb602bc-5314-4351-8dcc-6a074d3ea8c5}\" StaticName=\"field_6\"><CHOICES><CHOICE>Yes</CHOICE><CHOICE>No</CHOICE></CHOICES></Field>"]}
+Title,address,orginazation,QR,Attendance
+"홍길동","율도국","율도국","https://quickchart.io/qr?text=홍길동|율도국","No"
+"전우치","송도","무소속","https://quickchart.io/qr?text=전우치|무소속","No"
+"신사임당","강릉","무소속","https://quickchart.io/qr?text=신사임당|무소속","No"
+"허초희","강릉","무소속","https://quickchart.io/qr?text=허초희|무소속","No"
+"선덕","경주","신라","https://quickchart.io/qr?text=선덕|신라","No"
+"왕건","개경","고려","https://quickchart.io/qr?text=왕건|고려","No"
