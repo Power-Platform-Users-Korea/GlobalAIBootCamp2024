@@ -274,10 +274,71 @@ UpdateContext({vName: vNameValue})
 ```
 
 ## 9. 마무리
+QRScan 스크린의 마무리 모양  
+
+
 ### 9-1. QR 코드 스캔한 값 확인하기
 Text Label을 4개 추가한 후 '이름'과 '소속'을 각각 키(key)와 값(value)으로 나타낼 수 있게 합니다.  
-Lookup 함수를 사용합니다.  
+그 중 하나는 이름을 표시하기 위해 'lblName'이라고 이름짓고, 다른 하나는 QR Scan을 통해 가져온 값 가운데 이름을 담기위해 'vName'이라고 이름짓습니다. 'vName'에는 Text Label의 "Text"에 스캔해서 취득한 "이름"을 나타내게 할 생각입니다.  
+따라서, 스캔할 때 저장해둔 변수 "vNameValue"만 입력하면 끝납니다.
+![image](https://github.com/Power-Platform-Users-Korea/GlobalAIBootCamp2024/assets/83335854/bf77aba4-def2-418a-aa64-0f4a551efc75)
+
+
+그리고 또 하나는 동명이인이 아닌 걸 확인하기 위해 소속을 표시하려고 'lblOrg'와 'vOrg'로 이름 지어서 붙여넣기를 합니다.  
+'vOrg'는 Lookup 함수를 사용해서 QR코드를 스캔해서 가져온 이름에 해당하는 사람의 소속을 가져옵니다.
+
+> 주의: 실습은 이름을 ID처럼 사용하고 있는데, 동명이인인 경우에는 실제 문제가 될 수 있습니다. 같은 이름인 사람도 따로 구분할 수 있는 ID를 부여해서(가령 행사 신청시 'webinar01'과 같이 고유한 번호를 부여해서) 다른 사람과 구분하는 것이 매우 중요합니다.
+
+vOrg는 "Text"의 값을 스캔한 사람의 이름을 기준으로 소속을 가져와야 하므로 "Text" 상태의 함수를 LookUp을 사용해서 가져옵니다.  
+```power apps fx
+LookUp(WebinarBookingList01, Title = vNameValue, organization)
+```
+![vOrg 함수 설명하는 이미지](https://github.com/Power-Platform-Users-Korea/GlobalAIBootCamp2024/assets/83335854/e0241f5d-bd1c-4f9d-b6e6-4ffd376ff965)
+
+
 ### 9-2. QR 코드 스캔한 사람의 출석상태 체크
-Toggle 버튼으로 손쉽게 출석여부를 확인하고 상태값을 업데이트 합니다.  
+Toggle 버튼으로 손쉽게 출석여부를 확인하고 상태값을 업데이트 합니다.
+코파일럿에게 'Toggle'버튼을 추가해달라고 하겠습니다. Barcode reader와 달리 잘 추가해줍니다.^^  
+```power apps copilot
+Add a toggle button in QRScan screen.
+```
+
 Toggle 버튼에는 "Yes/No" 타입의 "Attendance_Status"라는 컬럼을 활용합니다.  
-Toggle 버튼과 일반 버튼을 추가해서 Patch 함수를 이용해 상태를 변경하게 합니다. 
+Toggle 버튼은 "Attendance_Status"라는 컬럼의 값과 동기화를 해줍니다. 즉, 해당 참가자의 "Attendance_Status"가 "Yes"인 경우에는 "On"이 되게 하고, "No"인 경우에는 "Off"가 되게 합니다.  
+``` power apps fx
+LookUp(WebinarBookingList01, Title = vNameValue, Attendance_Status)
+```
+
+![image](https://github.com/Power-Platform-Users-Korea/GlobalAIBootCamp2024/assets/83335854/43300d6b-b95e-43fa-ba27-3bc61a6f82e6)
+
+### 9-3. QR 코드 이미지 표시하기
+"Image"라는 메뉴를 활용해서 QR코드를 스캔한 후에 스캔한 사람의 QR 코드 이미지를 앱에서 보여주며 확인할 수 있게 해보겠습니다.  
+꼭 필요하지는 않으나 이미지를 불러와서 앱에 표시하는 기능을 익히는 정도로 실습해보려고 합니다.  
+
+"Image"는 상단 메뉴에서 추가하실 수 있습니다.  
+![image](https://github.com/Power-Platform-Users-Korea/GlobalAIBootCamp2024/assets/83335854/af2ee66f-1144-45cf-af48-f2fa6f5eecf4)
+
+참고로 "Image"를 테이블 또는 외부에서 불러올 때 이미지 주소는 문자여야 하므로 따옴표로 감싸줘야 합니다.
+```power apps fx
+"LookUp(WebinarBookingList01, Title = vNameValue, QR)"
+```
+![msedge_24032001](https://github.com/Power-Platform-Users-Korea/GlobalAIBootCamp2024/assets/83335854/c34fcf0f-d8a3-4077-a884-80713c5678af)
+
+
+### 9-4. 출석상태 변경후 SharePoint List에 변경한 값 업데이트 하기(Patch)
+일반 버튼을 추가해서 Patch 함수를 이용해 상태를 변경하게 합니다.  
+```power apps copilot
+Add a button
+```
+해당스크린에서 위와 같이 프롬프트를 입력하면 "Button" 정도는 잘 추가해줍니다.  
+버튼에 표시된 문자를 "Button"에서 "출성상태변경"이라고 바꿔봤습니다.  
+그리고, patch 함수를 사용해서 변경된 상태를 SharePoint List (우리 경우는 "WebinarBookingList01")에서 변경해줍니다.  
+이 때 Patch가 성공하면 If 함수를 사용해서 성공과 실패의 경우 메세지를 달리 보여주게 처리합니다.
+```power apps fx
+Set(varPatchResult, Patch(WebinarBookingList01, LookUp(WebinarBookingList01, Title=vNameValue), {Attendance_Status: Toggle1.Value}));
+If(!IsError(varPatchResult), Notify("출석 상태 변경 성공", NotificationType.Success), Notify("출석 상태 변경 오류", NotificationType.Error));
+```
+
+![image](https://github.com/Power-Platform-Users-Korea/GlobalAIBootCamp2024/assets/83335854/dee3e852-d738-4cee-8337-b93d0e894838)
+
+
